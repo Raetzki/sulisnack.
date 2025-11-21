@@ -1,0 +1,14 @@
+.sidebar {
+    border-right: 1px solid #ddd;
+    min-height: 100vh;
+    padding-top: 20px;
+}
+.cart-sidebar {
+    border-left: 1px solid #ddd;
+    min-height: 100vh;
+    padding-top: 20px;
+}
+.category-btn.active {
+    background-color: #0d6efd !important;
+    color: white !important;
+}
