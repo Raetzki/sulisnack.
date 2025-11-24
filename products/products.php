@@ -7,7 +7,7 @@ $bodyData = json_decode(file_get_contents("php://input"), true);
 
 
 switch (end($uri)) {
-    case 'termekek':
+    case 'szures':
         if($method != "GET"){
             return http_response_code(405);
         }
@@ -113,7 +113,26 @@ switch (end($uri)) {
         }
         else{
             http_response_code(400);
-            echo json_encode(["valasz" => "Hibáskeresési feltételek"]);
+            echo json_encode(["valasz" => "Hibás keresési feltételek"]);
+            return;
+        }
+    break;
+
+
+    case 'minden':
+        if($method != "GET") return http_response_code(405);
+        
+        $minden_SQL = "SELECT nev, leiras, foto, ar FROM termek";
+        $minden = lekeres($minden_SQL);
+
+        if(!empty($minden)){
+            echo json_encode($minden);
+            return;
+        }
+        else{
+            http_response_code(400);
+            echo json_encode(["valasz" => "Sikertelen lekérés"]);
+            return;
         }
     break;
     

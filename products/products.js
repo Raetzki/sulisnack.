@@ -1,30 +1,58 @@
 let selectedCategory = null;
 
-document.querySelectorAll(".category-btn").forEach((btn) => {
-    btn.addEventListener("click", () => {
-        const cat = btn.dataset.cat;
+function selectCategory(event) {
+    const btn = event.target;
+    const cat = btn.dataset.cat;
 
-        // Ha ugyanarra kattint, marad aktív – nem kell toggolni
-        if (selectedCategory === cat) {
-            return;
+    if (selectedCategory === cat) return;
+
+    document.querySelectorAll(".category-btn").forEach(b => b.classList.remove("active"));
+
+    btn.classList.add("active");
+    selectedCategory = cat;
+}
+
+document.querySelectorAll(".category-btn").forEach(btn => {
+    btn.addEventListener("click", selectCategory);
+});
+
+document.getElementById("search-btn").addEventListener("click", async () => {
+    const min = document.getElementById("min-price").value;
+    const max = document.getElementById("max-price").value;
+
+    console.log("Keresés:", selectedCategory, min, max);
+
+
+    // await fetch(`./products.php?kategoria=${selectedCategory}&min=${min}&max=${max}`);
+});
+
+async function minden(){
+    let products_container = document.getElementById("products-container")
+    let errordiv = document.getElementById("error-div")
+
+
+    try {
+        let req = await fetch("./products.php/minden")
+        let Data = await req.json();
+
+        if(req.ok){
+            for (const d of Data) {
+                products_container.innerHTML += `
+                ${d.foto}, ${d.nev}, ${d.leiras}, ${d.ar}`
+            }
         }
+        else{
+            throw Data.valasz
+        }
+        
 
-        // Minden gomb inaktiválása
-        document.querySelectorAll(".category-btn").forEach((b) => {
-            b.classList.remove("active");
-        });
+    } catch (error) {
+        errordiv.hidden = false
+        errordiv.innerHTML = Data.valasz;
+        errordiv.className = "alert alert-danger"
+    }
+}
 
-        // Aktuális gomb aktiválása
-        btn.classList.add("active");
-        selectedCategory = cat;
+window.addEventListener("load", minden)
 
-        console.log("Kiválasztott kategória:", selectedCategory);
-    });
-});
 
-document.getElementById("search-btn").addEventListener("click", () => {
-    
-
-    // majd:
-    // fetch(`/api/products?cat=${selectedCategory}&min=${min}&max=${max}`)
-});
