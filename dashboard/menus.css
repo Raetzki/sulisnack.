@@ -45,12 +45,168 @@ body {
   justify-content: center;
 }
 
-/* Content cards (ha később kell)
-.content-card {
+.dashboard-wrapper {
+  width: 95%;
+  margin: 30px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.page-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #2b2d42;
+}
+
+.filter-bar {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 8px 18px;
+  border-radius: 12px;
+  background: white;
+  border: 2px solid #e4e7ee;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.filter-btn:hover {
+  background: #f2f4f8;
+}
+
+.filter-btn.active {
+  background: #4b7bec;
+  border-color: #4b7bec;
+  color: white;
+}
+
+.orders-table {
+  width: 100%;
   background: white;
   border-radius: 20px;
-  padding: 25px;
-  width: 95%;
-  margin: 20px auto;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
-} */
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+.orders-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.orders-table thead {
+  background: #f7f9fc;
+}
+
+.orders-table th {
+  padding: 14px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #2f3640;
+  text-transform: uppercase;
+}
+
+.orders-table td {
+  padding: 15px;
+  font-size: 15px;
+  border-top: 1px solid #edf0f7;
+}
+
+.status {
+  padding: 6px 14px;
+  border-radius: 14px;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.status.done {
+  background: #d4f8d4;
+  color: #2b8a3e;
+}
+
+.status.in-progress {
+  background: #fff4c4;
+  color: #d1a100;
+}
+
+.status.waiting {
+  background: #ffe0e0;
+  color: #c23616;
+}
+
+.orders-table tbody tr:hover {
+  background: #f7faff;
+  cursor: pointer;
+}
+
+
+.card {
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.card-title {
+  font-weight: 600;
+  color: #333;
+}
+
+form input, form select, form button, form textarea {
+  border-radius: 12px;
+}
+
+form button {
+  font-weight: 600;
+}
+
+textarea {
+  resize: none;
+}
+
+@media(max-width: 992px) {
+  .card {
+    margin-bottom: 20px;
+  }
+}
+
+@media(max-width: 576px) {
+  .user-btn { width: 40px; height: 40px; }
+}
+
+@media (max-width: 768px) {
+  .orders-table table {
+    font-size: 14px;
+  }
+
+  .filter-btn {
+    padding: 6px 14px;
+  }
+
+  .user-btn {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

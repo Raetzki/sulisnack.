@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Nov 14. 09:55
+-- Létrehozás ideje: 2025. Nov 25. 11:42
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.2.12
 
@@ -31,7 +31,7 @@ CREATE TABLE `felhasznalo` (
   `id` int(11) NOT NULL,
   `name` varchar(60) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `pwd` varchar(50) NOT NULL,
+  `pwd` varchar(60) NOT NULL,
   `role` varchar(10) NOT NULL,
   `class` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
@@ -62,7 +62,18 @@ INSERT INTO `felhasznalo` (`id`, `name`, `email`, `pwd`, `role`, `class`) VALUES
 (20, 'test', 'test@gmail.com', '$2y$10$C7MNJ9PY6AHGZMAtviwjyO4kDKcTGPbs9CPHVoEzYqi', 'user', '13C'),
 (21, 'Pap Adrián', 'pap@gmail.com', '$2y$10$OJ9XzoNrlwFthtVmyQIDueOrPP1dyv.2fsX19.9qMKY', 'user', '13C'),
 (22, 'Papi', 'armin@gmail.com', '$2y$10$AiFPrPJP0dliep0Z6fkZDuFA7nygfui0XjLLdAC4pH5', 'user', '13c'),
-(23, '11', '12csads@sada.com', '$2y$10$0fiHmfL.mZ5dRQCtxwsBl.p6uR6iAdY0fi2tRbl20/E', 'user', '13C');
+(23, '11', '12csads@sada.com', '$2y$10$0fiHmfL.mZ5dRQCtxwsBl.p6uR6iAdY0fi2tRbl20/E', 'user', '13C'),
+(24, 'sad', 'as1dsdaasd@gmail.com', '$2y$10$YSr6fHhUxYLI0icjCFzcvehHorIqrYgCW5WVoi0zELa', 'user', 'asd'),
+(25, 'Pap Adrián', 'teszt@gmail.com', '$2y$10$6KWkUG/lCXlulWH4G82FROGSflX.z4s7Te3T8Mr4abv', 'user', '13C'),
+(26, 'Pap Adrián', 'test1@gmail.com', '$2y$10$ROBT.lOn.qgsRxy/N5bX5uRfz22CuLGyfYeN3BBeWhus6fNzUg9Fe', 'user', '13C'),
+(27, 'asd', 'sugar@gmail.com', '$2y$10$ZwqSokHKtE11EdjRDVm/gurPr0B0VSzANG/JrDcKQInuJtYedDxVC', 'user', '13C'),
+(28, 'adsad', 'asdasdadssad@gmail.com', '$2y$10$l39r0O5l21AaQui7WKvO.uwtYhSVO5SBKar8NBmG6Uhbw0bKzodZa', 'user', '13C'),
+(29, 'asddasdsad', 'asdasdsadasd@gmail.com', '$2y$10$DtN9G2/V9gDK.edToW/qOegutu.NAnepG056jPgJxTWIhtkwlYQMS', 'user', '13C'),
+(30, 'asddsadasdsad', 'asáfjafa@gmail.com', '$2y$10$kzLQsK6GMwPXnsesexgkAO/u2/u4f525nX/xA7mwAjPc8ZoiiBoOG', 'user', 'adassad'),
+(31, 'das', 'sugarmartonlevente@gmail.com', '$2y$10$1KPicLlUpgx4KeRtPe0El.00bPW3WG4vpWEuwh8gzCuq8MKErKhG2', 'user', 'asd'),
+(32, 'TesztElek', 'testtest@gmail.com', '$2y$10$pZhq6t9clUnJpElB9ypAt.W8yBopqayV3.hDhU30JP3UhvC0LV0h.', 'user', 'asd'),
+(33, 'bufes', 'bufes@gmail.com', '$2y$10$WacGl0wGLYya9dMMNty2qONyytWxmW/k29AZOebXoyENw8aXJRpH2', 'bufes', 'Bufe'),
+(34, 'admin', 'admin@gmail.com', '$2y$10$n4yplMoEb.EaZ.7uQOZ5yeHrhLoqRC62qExlrIpTacTF8ue2.mri2', 'admin', '-');
 
 -- --------------------------------------------------------
 
@@ -326,7 +337,7 @@ ALTER TABLE `visszajelzes`
 -- AUTO_INCREMENT a táblához `felhasznalo`
 --
 ALTER TABLE `felhasznalo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT a táblához `rendeles`

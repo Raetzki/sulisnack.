@@ -58,7 +58,7 @@ const loginCheck = async (e) => {
         clearInterval(interval);
         console.log(data);
         if (data.role === "admin" || data.role === "bufes") {
-          window.location.href = "../dashboard/dashboard.html";
+          window.location.href = "../dashboard/orders.html";
         } else {
           window.location.href = "../products/orders.html";
         }
