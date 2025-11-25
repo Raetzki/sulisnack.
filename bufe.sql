@@ -31,7 +31,11 @@ CREATE TABLE `felhasznalo` (
   `id` int(11) NOT NULL,
   `name` varchar(60) NOT NULL,
   `email` varchar(50) NOT NULL,
+<<<<<<< HEAD
   `pwd` varchar(60) NOT NULL,
+=======
+  `pwd` varchar(255) NOT NULL,
+>>>>>>> 6e4e933c0754d47b8a720b008c07be2f72aacfb0
   `role` varchar(10) NOT NULL,
   `class` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
