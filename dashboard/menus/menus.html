@@ -8,14 +8,14 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
-    <link rel="icon" type="image/x-icon" href="./pics/logo_nobg.png" />
+    <link rel="icon" type="image/x-icon" href="../pics/logo_nobg.png" />
     <link rel="stylesheet" href="menus.css" />
   </head>
 
   <body>
     <nav class="navbar navbar-expand-lg">
       <a class="navbar-brand" href="#logo">
-        <img src="./pics/logo_nobg.png" />
+        <img src="../pics/logo_nobg.png" />
       </a>
 
       <button
@@ -30,10 +30,13 @@
       <div class="collapse navbar-collapse mx-auto" id="mainNav">
         <ul class="navbar-nav mx-auto gap-2">
           <li class="nav-item">
-            <a class="nav-link" href="orders.html">Rendelések</a>
+            <a class="nav-link" href="../orders/orders.html">Rendelések</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" href="#menus">Menük</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../products/products.html">Termékek</a>
           </li>
         </ul>
       </div>
@@ -46,26 +49,11 @@
       </div>
     </nav>
 
-   <div class="container mt-4">
+    <div class="container mt-4">
       <div class="row g-4">
-
         <div class="col-12 col-md-4">
           <div class="card p-3 shadow-sm h-100">
-            <h4 class="card-title">Új termék létrehozása</h4>
-            <form class="d-flex flex-column gap-2 mt-2">
-              <input type="text" class="form-control" placeholder="Azonosító" required>
-              <input type="text" class="form-control" placeholder="Név" required>
-              <input type="text" class="form-control" placeholder="Kategória" required>
-              <input type="number" class="form-control" placeholder="Ár (Ft)" required>
-              <input type="file" class="form-control" accept="image/*" required>
-              <button class="btn btn-success mt-2 w-100">Létrehozás</button>
-            </form>
-          </div>
-        </div>
-
-        <div class="col-12 col-md-4">
-          <div class="card p-3 shadow-sm h-100">
-            <h4 class="card-title">Meglévő termék módosítása</h4>
+            <h4 class="card-title">Új menü létrehozása</h4>
             <form class="d-flex flex-column gap-2 mt-2">
               <select class="form-select mb-2">
                 <option selected>Válassz terméket...</option>
@@ -73,9 +61,47 @@
                 <option>Pizza</option>
                 <option>Saláta</option>
               </select>
-              <input type="text" class="form-control" placeholder="Név">
-              <input type="text" class="form-control" placeholder="Kategória">
-              <input type="number" class="form-control" placeholder="Ár (Ft)">
+              <select class="form-select mb-2">
+                <option selected>Válassz terméket...</option>
+                <option>Hamburger</option>
+                <option>Pizza</option>
+                <option>Saláta</option>
+              </select>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Név"
+                required
+              />
+              <input
+                type="number"
+                class="form-control"
+                placeholder="Ár (Ft)"
+                required
+              />
+              <input
+                type="file"
+                class="form-control"
+                accept="image/*"
+                required
+              />
+              <button class="btn btn-success mt-2 w-100">Létrehozás</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <div class="card p-3 shadow-sm h-100">
+            <h4 class="card-title">Meglévő menü módosítása</h4>
+            <form class="d-flex flex-column gap-2 mt-2">
+              <select class="form-select mb-2">
+                <option selected>Válassz menüt...</option>
+                <option>Hamburger</option>
+                <option>Pizza</option>
+                <option>Saláta</option>
+              </select>
+              <input type="text" class="form-control" placeholder="Név" />
+              <input type="number" class="form-control" placeholder="Ár (Ft)" />
               <button class="btn btn-primary mt-2 w-100">Módosítás</button>
             </form>
           </div>
@@ -83,24 +109,28 @@
 
         <div class="col-12 col-md-4">
           <div class="card p-3 shadow-sm h-100">
-            <h4 class="card-title">Meglévő termék törlése</h4>
+            <h4 class="card-title">Meglévő menü törlése</h4>
             <form class="d-flex flex-column gap-2 mt-2">
               <select class="form-select mb-2">
-                <option selected>Válassz terméket törléshez...</option>
+                <option selected>Válassz menüt törléshez...</option>
                 <option>Hamburger</option>
                 <option>Pizza</option>
                 <option>Saláta</option>
               </select>
-              <textarea class="form-control" rows="3" placeholder="Törlés indok..." required></textarea>
+              <textarea
+                class="form-control"
+                rows="3"
+                placeholder="Törlés indok..."
+                required
+              ></textarea>
               <button class="btn btn-danger mt-2 w-100">Törlés</button>
             </form>
           </div>
         </div>
-
       </div>
 
       <div class="mt-5">
-         <h3 class="fw-bold">Menük</h3>
+        <h3 class="fw-bold">Menük</h3>
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>

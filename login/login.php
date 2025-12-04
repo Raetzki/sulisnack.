@@ -46,5 +46,10 @@ switch (end($uri)) {
         ], JSON_UNESCAPED_UNICODE); 
 
         return;
+<<<<<<< HEAD
+=======
+
+        break;
+>>>>>>> 859b766 (master)
 }
 ?>
