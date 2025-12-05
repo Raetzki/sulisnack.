@@ -13,11 +13,11 @@ switch (end($uri)) {
             return;
         }
 
-        $requestproductsSQL = "SELECT nev, kategoria, leiras, img, ar FROM termek ORDER BY id DESC LIMIT 1";
+        $requestproductsSQL = "SELECT nev, kategoria, leiras, img, ar FROM termek ORDER BY id DESC";
         $requestproducts = dataQuery($requestproductsSQL);
 
         if ($requestproducts) {
-            echo json_encode($requestproducts[0], JSON_UNESCAPED_UNICODE);
+            echo json_encode($requestproducts, JSON_UNESCAPED_UNICODE);
         } else {
             http_response_code(500);
         }

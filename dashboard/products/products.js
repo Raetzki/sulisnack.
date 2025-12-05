@@ -13,28 +13,40 @@ function showGlobalAlert(message, type = "success", duration = 5000) {
   }, duration);
 }
 
-async function loadLatestProduct() {
+async function loadProducts() {
   try {
     const res = await fetch("./products.php/query");
-    if (!res.ok) throw new Error("Hiba a legutóbbi termék lekérésekor.");
+    if (!res.ok) throw new Error("Hiba a termékek lekérésekor.");
 
-    const product = await res.json();
+    const products = await res.json();
 
     const container = document.getElementById("showproduct");
-    container.innerHTML = `
-      <div class="card shadow-sm" style="max-width: 500px; margin-top: 15px;">
-        <img src="http://localhost/projekt/dashboard/products/uploads/${product.img}" class="card-img-top" alt="${product.nev}" style="object-fit: cover; height: 200px; border-radius: 16px 16px 0 0;">
-        <div class="card-body">
-          <h5 class="card-title">${product.nev}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">${product.kategoria}</h6>
-          <p class="card-text">${product.leiras}</p>
-          <p class="fw-bold">${product.ar} Ft</p>
+    container.innerHTML = "";
+
+    container.innerHTML = `<div class="row" id="productRow"></div>`;
+    const row = document.getElementById("productRow");
+
+    products.forEach((product) => {
+      row.innerHTML += `
+        <div class="col-md-4 mb-4 d-flex">
+          <div class="card shadow-sm w-100">
+            <img src="http://localhost/projekt/dashboard/products/uploads/${product.img}"
+                 class="card-img-top"
+                 alt="${product.nev}"
+                 style="object-fit: cover; height: 200px; border-radius: 16px 16px 0 0;">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">${product.nev}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">${product.kategoria}</h6>
+              <p class="card-text">${product.leiras}</p>
+              <p class="fw-bold mt-auto">${product.ar} Ft</p>
+            </div>
+          </div>
         </div>
-      </div>
-    `;
+      `;
+    });
   } catch (error) {
     console.error(error);
-    showGlobalAlert("Hiba a legutóbbi termék betöltésénél!", "danger");
+    showGlobalAlert("Hiba a termékek betöltésekor!", "danger");
   }
 }
 
@@ -170,18 +182,18 @@ async function deleteProduct() {
 document.getElementById("createBtn").addEventListener("click", async (e) => {
   e.preventDefault();
   await createProduct();
-  await loadLatestProduct();
+  await loadProducts();
 });
 document.getElementById("selectBtn").addEventListener("click", async (e) => {
   e.preventDefault();
   await changeProduct();
-  await loadLatestProduct();
+  await loadProducts();
 });
 document.getElementById("deleteBtn").addEventListener("click", async (e) => {
   e.preventDefault();
   await deleteProduct();
-  await loadLatestProduct();
+  await loadProducts();
 });
 
 window.addEventListener("DOMContentLoaded", loadSelectProducts);
-window.addEventListener("DOMContentLoaded", loadLatestProduct);
+window.addEventListener("DOMContentLoaded", loadProducts);
