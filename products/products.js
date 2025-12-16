@@ -6,23 +6,19 @@ let kivalasztottKategoria = "";
 let kosardiv = document.getElementById("cart-content")
 let kosar = [];
 
-function selectCategory(event) {
+function kategoriaValasztas(event) {
   let btn = event.target;
   let cat = btn.dataset.cat;
 
-  if (kivalasztottKategoria === cat) return;
+  if (kivalasztottKategoria == cat) return;
 
-  document
-    .querySelectorAll(".category-btn")
-    .forEach((b) => b.classList.remove("active"));
+  document.querySelectorAll(".category-btn").forEach((b) => b.classList.remove("active"));
 
   btn.classList.add("active");
   kivalasztottKategoria = cat;
 }
 
-document.querySelectorAll(".category-btn").forEach((btn) => {
-  btn.addEventListener("click", selectCategory);
-});
+
 
 async function minden() {
   try {
@@ -166,7 +162,7 @@ function kosarBetolt(){
   stringbe += `
     <hr>
     <div class="d-flex justify-content-between fw-bold">
-      <span>Összesen: ${osszeg}</span>
+      <span>Összesen: ${osszeg} Ft</span>
     </div>
   `;
 
@@ -189,7 +185,9 @@ async function rendeles(){
 
 
 
-
+document.querySelectorAll(".category-btn").forEach((btn) => {
+  btn.addEventListener("click", kategoriaValasztas);
+});
 window.addEventListener("load", minden);
 document.getElementById("search-btn").addEventListener("click", szures);
 document.getElementById("place-order").addEventListener("click", rendeles);
