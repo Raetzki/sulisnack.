@@ -14,7 +14,7 @@ switch (end($uri)) {
 
         ///////////////////////////////csak kategoria alapján szűrés
         if(!empty($_GET["kategoria"]) && empty($_GET["min"]) && empty($_GET["max"])){
-            $kat_alapjan_SQL= "SELECT id, nev, leiras, foto, ar FROM termek WHERE kategoria = ?";
+            $kat_alapjan_SQL= "SELECT id, nev, leiras,  img, ar FROM termek WHERE kategoria = ?";
             $kat_alapjan = lekeres($kat_alapjan_SQL, "s", [$_GET["kategoria"]]);
 
             if(!empty($kat_alapjan)){
@@ -28,7 +28,7 @@ switch (end($uri)) {
             }
         }///////////////////////////////kategoria és min alapján
         else if(!empty($_GET["kategoria"]) && !empty($_GET["min"]) && empty($_GET["max"])){
-            $min_kat_alapjan_SQL = "SELECT id, nev, leiras, foto, ar FROM termek WHERE kategoria = ? AND ar >= ?";
+            $min_kat_alapjan_SQL = "SELECT id, nev, leiras,  img, ar FROM termek WHERE kategoria = ? AND ar >= ?";
             $min_kat_alapjan = lekeres($min_kat_alapjan_SQL, "si", [$_GET["kategoria"], $_GET["min"]]);
 
             if(!empty($min_kat_alapjan)){
@@ -42,7 +42,7 @@ switch (end($uri)) {
             }
         }///////////////////////////////kategoria és max alapján
         else if(!empty($_GET["kategoria"]) && empty($_GET["min"]) && !empty($_GET["max"])){
-            $max_kat_alapjan_SQL = "SELECT id, nev, leiras, foto, ar FROM termek WHERE kategoria = ? AND ar <= ?";
+            $max_kat_alapjan_SQL = "SELECT id, nev, leiras,  img, ar FROM termek WHERE kategoria = ? AND ar <= ?";
             $max_kat_alapjan = lekeres($max_kat_alapjan_SQL, "si", [$_GET["kategoria"], $_GET["max"]]);
 
             if(!empty($max_kat_alapjan)){
@@ -56,7 +56,7 @@ switch (end($uri)) {
             }
         }///////////////////////////min-max alapján szűrés
         else if(empty($_GET["kategoria"]) && !empty($_GET["min"]) && !empty($_GET["max"])){
-            $ar_alapjan_SQL= "SELECT id, nev, leiras, foto, ar FROM termek WHERE ar BETWEEN ? AND ? ";
+            $ar_alapjan_SQL= "SELECT id, nev, leiras,  img, ar FROM termek WHERE ar BETWEEN ? AND ? ";
             $ar_alapjan = lekeres($ar_alapjan_SQL, "ii", [$_GET["min"], $_GET["max"]]);
 
             if(!empty($ar_alapjan)){
@@ -70,7 +70,7 @@ switch (end($uri)) {
             }
         }////////////////////////////csak min alapján
         else if(empty($_GET["kategoria"]) && !empty($_GET["min"]) && empty($_GET["max"])){
-            $min_alapjan_SQL="SELECT id, nev, leiras, foto, ar FROM termek WHERE ar >= ? ";
+            $min_alapjan_SQL="SELECT id, nev, leiras,  img, ar FROM termek WHERE ar >= ? ";
             $min_alapjan = lekeres($min_alapjan_SQL, "i", [$_GET["min"]]);
 
             if(!empty($min_alapjan)){
@@ -84,7 +84,7 @@ switch (end($uri)) {
             }
         }////////////////////////////csak max alapján
         else if(empty($_GET["kategoria"]) && empty($_GET["min"]) && !empty($_GET["max"])){
-            $max_alapjan_SQL="SELECT id, nev, leiras, foto, ar FROM termek WHERE ar <= ? ";
+            $max_alapjan_SQL="SELECT id, nev, leiras,  img, ar FROM termek WHERE ar <= ? ";
             $max_alapjan = lekeres($max_alapjan_SQL, "i", [$_GET["max"]]);
 
             if(!empty($max_alapjan)){
@@ -98,7 +98,7 @@ switch (end($uri)) {
             }
         }/////////////////////////////minden alapján szűrés 
         else if(!empty($_GET["kategoria"]) && !empty($_GET["min"]) && !empty($_GET["max"])){
-            $ar_kat_alapjan_SQL = "SELECT id, nev, leiras, foto, ar FROM termek WHERE kategoria = ? AND ar BETWEEN ? AND ?";
+            $ar_kat_alapjan_SQL = "SELECT id, nev, leiras,  img, ar FROM termek WHERE kategoria = ? AND ar BETWEEN ? AND ?";
             $ar_kat_alapjan = lekeres($ar_kat_alapjan_SQL, "sii", [$_GET["kategoria"], $_GET["min"], $_GET["max"]]);
 
             if(!empty($ar_kat_alapjan)){
@@ -122,7 +122,7 @@ switch (end($uri)) {
     case 'minden':
         if($method != "GET") return http_response_code(405);
         
-        $minden_SQL = "SELECT id, nev, leiras, foto, ar FROM termek";
+        $minden_SQL = "SELECT id, nev, leiras,  img, ar FROM termek";
         $minden = lekeres($minden_SQL);
 
         if(!empty($minden)){

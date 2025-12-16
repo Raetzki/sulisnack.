@@ -35,7 +35,7 @@ switch (end($uri)) {
         }
 
         $changeSQL = "UPDATE rendeles SET statusz_id = ? WHERE id = ?";
-        $change = dataChange($change, "ii", [$bodydatas["statusz_id"], $bodydatas["id"]]);
+        $change = dataChange($changeSQL, "ii", [$bodydatas["statusz_id"], $bodydatas["id"]]);
 
         if($change) {
             echo json_encode(["Sikeres módósítás!"], JSON_UNESCAPED_UNICODE);
