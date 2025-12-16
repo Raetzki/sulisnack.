@@ -76,11 +76,18 @@ async function szures() {
       products_container.innerHTML = "";
 
       for (const d of Data) {
+<<<<<<< HEAD
         console.log(d);
         products_container.innerHTML += `
                 <div class="col-12 col-md-6 col-lg-4 mb-3">
                     <div class="card shadow-sm h-100">
                         <img src="http://localhost/projekt/dashboard/products/uploads/${d.img}" class="card-img-top" alt="${d.nev}">
+=======
+        products_container.innerHTML += `
+                <div class="col-12 col-md-6 col-lg-4 mb-3">
+                    <div class="card shadow-sm h-100">
+                        <img src="${d.foto}" class="card-img-top" alt="${d.nev}">
+>>>>>>> 36dcb66ade0c856db1ddb1694b7e5a24376da231
                         <div class="card-body d-flex flex-column">
                             <h5 id="product-name" class="card-title">${d.nev}</h5>
                             <p class="card-text">${d.leiras}</p>
