@@ -60,9 +60,9 @@ async function loadSelectProducts() {
     const deleteSelect = document.getElementById("deleteSelect");
 
     changeSelect.innerHTML =
-      "<option selected>Válassz terméket a módósításhoz...</option>";
+      "<option selected disabled>Válassz terméket a módósításhoz...</option>";
     deleteSelect.innerHTML =
-      "<option selected>Válassz terméket törléshez...</option>";
+      "<option selected disabled>Válassz terméket törléshez...</option>";
 
     products.forEach((prod) => {
       const option1 = document.createElement("option");
@@ -130,7 +130,7 @@ async function changeProduct() {
     const response = await fetch("./products.php/change", {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ id, nev, kategoria, leiras, ar }),
+      body: JSON.stringify({ name, nev, kategoria, leiras, ar }),
     });
     const data = await response.json();
 

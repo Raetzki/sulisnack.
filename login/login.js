@@ -58,15 +58,9 @@ const loginCheck = async (e) => {
         clearInterval(interval);
         console.log(data);
         if (data.role === "admin" || data.role === "bufes") {
-<<<<<<< HEAD
-          window.location.href = "../dashboard/orders.html";
-        } else {
-          window.location.href = "../products/orders.html";
-=======
           window.location.href = "../dashboard/orders/orders.html";
         } else {
           window.location.href = "../main/products/products.html";
->>>>>>> 859b766 (master)
         }
       }, 1200);
     } else {
