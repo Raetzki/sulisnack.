@@ -122,7 +122,7 @@ switch (end($uri)) {
     case 'minden':
         if($method != "GET") return http_response_code(405);
         
-        $minden_SQL = "SELECT id, nev, leiras,  img, ar FROM termek";
+        $minden_SQL = "SELECT id, nev, leiras, img, ar FROM termek";
         $minden = lekeres($minden_SQL);
 
         if(!empty($minden)){

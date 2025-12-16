@@ -104,7 +104,7 @@ body {
 }
 
 /* KOSÁRBA GOMB */
-#to-cart {
+.to-cart {
   background: linear-gradient(135deg, #ff6a00, #ff3b3b);
   color: white;
   border: none;
