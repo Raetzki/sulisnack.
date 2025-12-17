@@ -131,7 +131,6 @@ function kosarbaRakas(termek){
   kosarBetolt()
 }
 
-
 function kosarBetolt(){
 
   if(kosar.length == 0){
@@ -167,22 +166,12 @@ function kosarBetolt(){
   `;
 
   kosardiv.innerHTML = stringbe;
-
 }
-
-
 
 async function rendeles(){
   kosardiv.innerHTML = "Rendelés leadva <br >A kosár jelenleg üres"
   kosar = [];
 }
-
-
-
-
-
-
-
 
 
 document.querySelectorAll(".category-btn").forEach((btn) => {
